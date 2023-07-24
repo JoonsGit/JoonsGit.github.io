@@ -2,17 +2,15 @@
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
 author1:
-  name:              <firstname> <lastname>
-  email:             <mail@domain.tld>
+  name:              <Kim> <BeomJoon>
+  email:             <rlaqja2401@naver.com>
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+   This is a Blog only for record my study on codes.
     
-    Open `_data/authors.yml` to edit this text.
+    Send an email to `rlaqja2401@naver.com` if you have anything to ask.
 
   # This photo will be used in the about section
   picture:
@@ -26,9 +24,9 @@ author1:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
-    twitter:         <username>
+    #twitter:         <username>
     github:          <username>
-    # email:           <mail@domain.tld>
+    email:           <rlaqja2401@naver.com>
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
@@ -39,7 +37,7 @@ author1:
     # spotify:         <user>/<number>
     # soundcloud:      <username>
     # lastfm:          <username>
-    # instagram:       <username>
+    instagram:       <k1mbeomjoon>
     # flickr:          <string@string>
     # 500px:           <username>
     # dribbble:        <username>
