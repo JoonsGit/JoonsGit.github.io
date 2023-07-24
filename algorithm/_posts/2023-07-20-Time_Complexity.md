@@ -41,8 +41,6 @@ hide_last_modified: true
 
 <br>
 
-------
-
 <hr><br>
 
 
