@@ -39,7 +39,11 @@ hide_last_modified: true
 
 
 
-<br><hr><br>
+<br>
+
+------
+
+<hr><br>
 
 
 ## 표기법
@@ -52,7 +56,11 @@ hide_last_modified: true
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 
@@ -72,7 +80,11 @@ hide_last_modified: true
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 ## Big-O (빅-O) notation
@@ -140,7 +152,11 @@ if(n%2 == 0) {
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 ### 2. O(log n)
@@ -199,7 +215,11 @@ public static int binarySeacrh(int[] num, int target, int low, int high) {
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 ### 3. O(n)
@@ -250,7 +270,11 @@ for(int i=0; i<n; i++) {
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 ### 4. O(n^2)
@@ -301,7 +325,11 @@ for(int i=0; i<n; i++) {
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 ### 5. O(2^n)
@@ -354,7 +382,11 @@ public static int fibo(int n) {
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 ## 그럼 어느정도면 적당히 괜찮은거야 ?
@@ -373,7 +405,11 @@ public static int fibo(int n) {
 
 
 
-<br><hr><br>
+<br>
+
+---
+
+<br>
 
 
 ### ! Sorting algorithm 시간 복잡도 비교
@@ -394,5 +430,9 @@ public static int fibo(int n) {
 
 
 
-<br><hr><br>
+<br>
+
+----
+
+<br>
 
