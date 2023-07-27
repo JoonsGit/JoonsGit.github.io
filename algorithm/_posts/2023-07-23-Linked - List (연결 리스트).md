@@ -1,8 +1,8 @@
 ---
 layout: post
-title: DP (Dynamic Programming / 동적 계획법)
+title: Linked-List (연결 리스트)
 description: >
- Dynamic Programming 과 관련돈 이론적인 설명 및 예제 풀이
+ Linked-list에 관한 이론적인 설명
 sitemap: false
 hide_last_modified: true
 ---
