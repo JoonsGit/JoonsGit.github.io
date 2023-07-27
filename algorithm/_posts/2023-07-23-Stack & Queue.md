@@ -10,10 +10,6 @@ hide_last_modified: true
 
 # Stack & Queue
 
-<br>
-
-
-
 ---
 
 <br>
