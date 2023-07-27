@@ -1,364 +1,292 @@
 ---
-layout:  post
-title:  Linked - List (연결 리스트)
+layout: post
+title: DP (Dynamic Programming / 동적 계획법)
 description: >
-sitemap: false 
+ Dynamic Programming 과 관련돈 이론적인 설명 및 예제 풀이
+sitemap: false
 hide_last_modified: true
 ---
 
+> **자료구조**는 **데이터의 표현 및 저장 방법**을 의미하며, **특정한 형태로 저장된 데이터를 처리하는 과정 및 방법**을 **알고리즘**이라 칭한다. 때문에 본격적으로 알고리즘 공부를 시작하기 전에 자료구조에 대한 이해도를 높일 수 있다면 알고리즘 공부시에 많은 이점을 취할 수 있을 것이니, 자료구조를 하나하나 천천히 살펴보도록 하자.
+
+<br>
+
+***
+<br>
+
+# Linked List (연결 리스트)
+
+<br>
+
+***
+<br>
+
+## Linked List ?
+
+> Linked List란 어떠한 자료의 구조를 일컫는 말일까? 우리는 그 해답을 비교적 손쉽게 알아낼 수 있다. 구조의 이름은 그 본연의 형태에서 아이디어를 얻어 지어지기 마련인데, 그런 의미에서 Linked List는, 말 그대로 **여러개의 객체들이 List의 형태로 존재하는데, 각각의 객체들이 한 방향 혹은 여러 방향으로 연결된 형태의 자료구조**를 의미한다.
+<br>
+
+> Linked List는 기본적으로 여러개의 **Node(일종의 객체)** 가 연결된 구조인데, 각 Node에는 고유의 데이터와 다음 객체를 가리키는**주소(포인터)** 를 가지고 있다. 또한 대부분의 상황에서 Node의 데이터 변수는 **private** 혹은 **protected** 의 형태로 저장되어 있기 때문에, 새로운 데이터를 추가하거나, 기존의 데이터를 수정하는 경우, 가리키는 다음 Node의 주소를 가리키는 포인터 변경 등의 기능을 수행하는 함수들 역시 기본적으로 지니고 있어야 프로그램이 정상적으로 동작 할 수 있게 된다.
+<br>
+
+> 연결 리스트는 크게 **Singly-Linked List(단방향 연결 리스트), Doubly-Linked List(이중 연결 리스트), Multi-Linked List(다중 연결리스트)** 로 구분지을 수 있는데, 아래에서 코드를 기반하여 하나씩 살펴보자.  
+
+<br>
+
+***
+<br>
+
+### Singly- Linked List (단방향 연결 리스트)
+<br>
+
+![연결 리스트](https://velog.velcdn.com/images/kon6443/post/7b18a6f4-3c6c-4b48-8b7a-5fbe8757b773/image.png)
+<br>
 
 
-{ "cells": [
-  {
-   "cell_type": "markdown",
-   "id": "134b9495",
-   "metadata": {},
-   "source": [
-    "> **자료구조**는 **데이터의 표현 및 저장 방법**을 의미하며, **특정한 형태로 저장된 데이터를 처리하는 과정 및 방법**을 **알고리즘**이라 칭한다. 때문에 본격적으로 알고리즘 공부를 시작하기 전에 자료구조에 대한 이해도를 높일 수 있다면 알고리즘 공부시에 많은 이점을 취할 수 있을 것이니, 자료구조를 하나하나 천천히 살펴보도록 하자.\n",
-    "\n",
-    "<br>\n",
-    "\n",
-    "***\n",
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "3f288910",
-   "metadata": {},
-   "source": [
-    "# Linked List (연결 리스트)\n",
-    "\n",
-    "<br>\n",
-    "\n",
-    "***\n",
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "d06919b5",
-   "metadata": {},
-   "source": [
-    "## Linked List ?\n",
-    "\n",
-    "> Linked List란 어떠한 자료의 구조를 일컫는 말일까? 우리는 그 해답을 비교적 손쉽게 알아낼 수 있다. 구조의 이름은 그 본연의 형태에서 아이디어를 얻어 지어지기 마련인데, 그런 의미에서 Linked List는, 말 그대로 **여러개의 객체들이 List의 형태로 존재하는데, 각각의 객체들이 한 방향 혹은 여러 방향으로 연결된 형태의 자료구조**를 의미한다.\n",
-    "<br>\n",
-    "\n",
-    "> Linked List는 기본적으로 여러개의 **Node(일종의 객체)** 가 연결된 구조인데, 각 Node에는 고유의 데이터와 다음 객체를 가리키는**주소(포인터)** 를 가지고 있다. 또한 대부분의 상황에서 Node의 데이터 변수는 **private** 혹은 **protected** 의 형태로 저장되어 있기 때문에, 새로운 데이터를 추가하거나, 기존의 데이터를 수정하는 경우, 가리키는 다음 Node의 주소를 가리키는 포인터 변경 등의 기능을 수행하는 함수들 역시 기본적으로 지니고 있어야 프로그램이 정상적으로 동작 할 수 있게 된다.\n",
-    "<br>\n",
-    "\n",
-    "> 연결 리스트는 크게 **Singly-Linked List(단방향 연결 리스트), Doubly-Linked List(이중 연결 리스트), Multi-Linked List(다중 연결리스트)** 로 구분지을 수 있는데, 아래에서 코드를 기반하여 하나씩 살펴보자.  \n",
-    "\n",
-    "<br>\n",
-    "\n",
-    "***\n",
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "e4d09656",
-   "metadata": {},
-   "source": [
-    "### Singly- Linked List (단방향 연결 리스트)\n",
-    "<br>\n",
-    "\n",
-    "![연결 리스트](https://velog.velcdn.com/images/kon6443/post/7b18a6f4-3c6c-4b48-8b7a-5fbe8757b773/image.png)\n",
-    "<br>\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "90d86402",
-   "metadata": {},
-   "source": [
-    "> 위 그림에서 SLL의 구조에 대해 이해해보자.\n",
-    "<br>\n",
-    "\n",
-    "+ 첫번째 Node는 **head** 라고 불린다.<br>\n",
-    "+ list의마지막 Node는 **Tail** 이라 불린다. <br>\n",
-    "+ 리스트가 비어있다면, head는 **Null**을 가리킨다.<br>\n",
-    "+ Data 변수의 data type은 원하는 형태로 저장할 수 있다.<br>\n",
-    "+ 각각의 Node들은 기본적으로, 데이터를 저장할 **Data 변수**와 다음 Node를 가리키는 **Pointer 변수**를 가지고 있다.<br><br>\n",
-    "\n",
-    "> 아래는 CPP로 링스드 리스트를 구현한 간단한 예제이다.\n",
-    "<br>\n",
-    "\n",
-    "```cpp\n",
-    "// C++ program for the above approach\n",
-    "#include <iostream>\n",
-    "using namespace std;\n",
-    "\n",
-    "// Node class to represent\n",
-    "// a node of the linked list.\n",
-    "class Node {\n",
-    "public:\n",
-    "\tint data;\n",
-    "\tNode* next;\n",
-    "\n",
-    "\t// Default constructor\n",
-    "\tNode()\n",
-    "\t{\n",
-    "\t\tdata = 0;\n",
-    "\t\tnext = NULL;\n",
-    "\t}\n",
-    "\n",
-    "\t// Parameterised Constructor\n",
-    "\tNode(int data)\n",
-    "\t{\n",
-    "\t\tthis->data = data;\n",
-    "\t\tthis->next = NULL;\n",
-    "\t}\n",
-    "};\n",
-    "\n",
-    "// Linked list class to\n",
-    "// implement a linked list.\n",
-    "class Linkedlist {\n",
-    "\tNode* head;\n",
-    "\n",
-    "public:\n",
-    "\t// Default constructor\n",
-    "\tLinkedlist() { head = NULL; }\n",
-    "\n",
-    "\t// Function to insert a\n",
-    "\t// node at the end of the\n",
-    "\t// linked list.\n",
-    "\tvoid insertNode(int);\n",
-    "\n",
-    "\t// Function to print the\n",
-    "\t// linked list.\n",
-    "\tvoid printList();\n",
-    "\n",
-    "\t// Function to delete the\n",
-    "\t// node at given position\n",
-    "\tvoid deleteNode(int);\n",
-    "};\n",
-    "\n",
-    "// Function to delete the\n",
-    "// node at given position\n",
-    "void Linkedlist::deleteNode(int nodeOffset)\n",
-    "{\n",
-    "\tNode *temp1 = head, *temp2 = NULL;\n",
-    "\tint ListLen = 0;\n",
-    "\n",
-    "\tif (head == NULL) {\n",
-    "\t\tcout << \"List empty.\" << endl;\n",
-    "\t\treturn;\n",
-    "\t}\n",
-    "\n",
-    "\t// Find length of the linked-list.\n",
-    "\twhile (temp1 != NULL) {\n",
-    "\t\ttemp1 = temp1->next;\n",
-    "\t\tListLen++;\n",
-    "\t}\n",
-    "\n",
-    "\t// Check if the position to be\n",
-    "\t// deleted is greater than the length\n",
-    "\t// of the linked list.\n",
-    "\tif (ListLen < nodeOffset) {\n",
-    "\t\tcout << \"Index out of range\"\n",
-    "\t\t\t<< endl;\n",
-    "\t\treturn;\n",
-    "\t}\n",
-    "\n",
-    "\t// Declare temp1\n",
-    "\ttemp1 = head;\n",
-    "\n",
-    "\t// Deleting the head.\n",
-    "\tif (nodeOffset == 1) {\n",
-    "\n",
-    "\t\t// Update head\n",
-    "\t\thead = head->next;\n",
-    "\t\tdelete temp1;\n",
-    "\t\treturn;\n",
-    "\t}\n",
-    "\n",
-    "\t// Traverse the list to\n",
-    "\t// find the node to be deleted.\n",
-    "\twhile (nodeOffset-- > 1) {\n",
-    "\n",
-    "\t\t// Update temp2\n",
-    "\t\ttemp2 = temp1;\n",
-    "\n",
-    "\t\t// Update temp1\n",
-    "\t\ttemp1 = temp1->next;\n",
-    "\t}\n",
-    "\n",
-    "\t// Change the next pointer\n",
-    "\t// of the previous node.\n",
-    "\ttemp2->next = temp1->next;\n",
-    "\n",
-    "\t// Delete the node\n",
-    "\tdelete temp1;\n",
-    "}\n",
-    "\n",
-    "// Function to insert a new node.\n",
-    "void Linkedlist::insertNode(int data)\n",
-    "{\n",
-    "\t// Create the new Node.\n",
-    "\tNode* newNode = new Node(data);\n",
-    "\n",
-    "\t// Assign to head\n",
-    "\tif (head == NULL) {\n",
-    "\t\thead = newNode;\n",
-    "\t\treturn;\n",
-    "\t}\n",
-    "\n",
-    "\t// Traverse till end of list\n",
-    "\tNode* temp = head;\n",
-    "\twhile (temp->next != NULL) {\n",
-    "\n",
-    "\t\t// Update temp\n",
-    "\t\ttemp = temp->next;\n",
-    "\t}\n",
-    "\n",
-    "\t// Insert at the last.\n",
-    "\ttemp->next = newNode;\n",
-    "}\n",
-    "\n",
-    "// Function to print the\n",
-    "// nodes of the linked list.\n",
-    "void Linkedlist::printList()\n",
-    "{\n",
-    "\tNode* temp = head;\n",
-    "\n",
-    "\t// Check for empty list.\n",
-    "\tif (head == NULL) {\n",
-    "\t\tcout << \"List empty\" << endl;\n",
-    "\t\treturn;\n",
-    "\t}\n",
-    "\n",
-    "\t// Traverse the list.\n",
-    "\twhile (temp != NULL) {\n",
-    "\t\tcout << temp->data << \" \";\n",
-    "\t\ttemp = temp->next;\n",
-    "\t}\n",
-    "}\n",
-    "\n",
-    "// Driver Code\n",
-    "int main()\n",
-    "{\n",
-    "\tLinkedlist list;\n",
-    "\n",
-    "\t// Inserting nodes\n",
-    "\tlist.insertNode(1);\n",
-    "\tlist.insertNode(2);\n",
-    "\tlist.insertNode(3);\n",
-    "\tlist.insertNode(4);\n",
-    "\n",
-    "\tcout << \"Elements of the list are: \";\n",
-    "\n",
-    "\t// Print the list\n",
-    "\tlist.printList();\n",
-    "\tcout << endl;\n",
-    "\n",
-    "\t// Delete node at position 2.\n",
-    "\tlist.deleteNode(2);\n",
-    "\n",
-    "\tcout << \"Elements of the list are: \";\n",
-    "\tlist.printList();\n",
-    "\tcout << endl;\n",
-    "\treturn 0;\n",
-    "}\n",
-    "\n",
-    "```\n",
-    "<br>\n",
-    "\n",
-    "***\n",
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "5659ad38",
-   "metadata": {},
-   "source": [
-    "### Doubly- Linked List (DLL / 이중 연결 리스트)\n",
-    "<br>\n",
-    "\n",
-    "![연결 리스트](https://velog.velcdn.com/images/kon6443/post/8ec95fb8-f679-49d4-9b24-5cbbef3d7c3d/image.png)\n",
-    "<br>\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "73374353",
-   "metadata": {},
-   "source": [
-    "> 실무적으로는 더블 링크스 리스트 라는 말로 더 자주 불리는 DLL의 구조에 대해, 위의 그림을 통해 이해해보자.\n",
-    "<br>\n",
-    "\n",
-    "+ 첫번째 Node는 **head** 라고 불린다.<br>\n",
-    "+ 마지막 Node는 **Tail** 이라 불린다. <br>\n",
-    "+ 리스트가 비어있다면, head는 **Null**을 가리킨다.<br>\n",
-    "+ Data 변수의 data type은 원하는 형태로 저장할 수 있다.<br>\n",
-    "+ SLL과는 다르게 DLL은 현재 Node의 *다음 Node를 가리키는* **Next Pointer** 이외에 *이전 Node를 가리키는* **Prev Pointer** 또한 가지고있어야 한다.<br><br>\n",
-    "\n",
-    "> 이외에도 **Multi-Linked List(MLL / 다중 연결 리스트), Circular-Linked list(CLL / 원령 연결 리스트)** 가 있는데, 이 둘도 기본 컨셉은 위의 두 Linked List 형태와 같음으로 간단하게 특징 정도만 알아보자.\n",
-    "\n",
-    "<br>\n",
-    "\n",
-    "---\n",
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "0d12f92e",
-   "metadata": {},
-   "source": [
-    "### Mulit-Linked list(MLL / 다중 연결 리스트)\n",
-    "<br>\n",
-    "\n",
-    "> 사실 이전에 설명한 DLL 또한 MLL의 한 가지이긴 하다. 다음 Node만을 바라볼 수 밖에 없는 SLL에 비해, MLL은 Next Node 이외의 Node를 바라볼 수 있는 구조를 의미하기 때문에 그렇다 할 수 있는 것이다.<br>\n",
-    "\n",
-    "**그렇다면 SLL에 비해 MLL의 장단점은 무엇이 있을까?**<br>\n",
-    "\n",
-    "> 가장 먼저 떠오르는 장점은 역시 탐색 속도에 있다. 단발적인 탐색이 아닌, 연속적으로 탐색이 이루어져야하는 경우 시간이 크게 단축된다는 효과가 있다. 하지만 Next Pointer만을 가진 SLL에 비해 두배 이상의 Pointer 공간이 사용되어야 한다는 단점 또한 존재한다.<br>\n",
-    "\n",
-    "**DLL 이상의 MLL은 어떻게 구현할 수 있을까**<br>\n",
-    "\n",
-    "> 예를 들어 Next 와 Prev Pointer 가 아닌, 두개의 Next Pointer를 가져야 하는 상황은 어떻게 구현해야 할까? 당장 떠오르는 방법으로는, pointer 변수를 vector의 동적 할당을 통해 하나의 Node에 포인터를 다중으로 사용하는 방법이 있겠다.<br>\n",
-    "\n",
-    "<br>\n",
-    "\n",
-    "---\n",
-    "<br>\n",
-    "\n",
-    "### Circular-Linked list (CLL / 원형 연결 리스트)\n",
-    "<br>\n",
-    "\n",
-    "> CLL은 생각보다 간단하다. 단순하게 list가 원형으로 연결된 구조라고 생각하면 되는데, Tail Node의 Next Pointer가 Head Node의 주소값을 가리키도록 설정하면 간단히 CLL을 완성할 수 있다.<br>\n",
-    "\n",
-    "> 장점으로는 모든 Node의 탐색을 끝마치면 다시 탐색 초기 Node로 돌아올 수 있다는 점, 비교적 단순한 구조를 가질 수 있다는 것 정도가 있겠다.<br>\n",
-    "\n",
-    "<br>\n",
-    "\n",
-    "---\n",
-    "<br>"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.9.13"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
+> 위 그림에서 SLL의 구조에 대해 이해해보자.
+<br>
+
++ 첫번째 Node는 **head** 라고 불린다.<br>
++ list의마지막 Node는 **Tail** 이라 불린다. <br>
++ 리스트가 비어있다면, head는 **Null**을 가리킨다.<br>
++ Data 변수의 data type은 원하는 형태로 저장할 수 있다.<br>
++ 각각의 Node들은 기본적으로, 데이터를 저장할 **Data 변수**와 다음 Node를 가리키는 **Pointer 변수**를 가지고 있다.<br><br>
+
+> 아래는 CPP로 링스드 리스트를 구현한 간단한 예제이다.
+<br>
+
+```cpp
+// C++ program for the above approach
+#include <iostream>
+using namespace std;
+
+// Node class to represent
+// a node of the linked list.
+class Node {
+public:
+	int data;
+	Node* next;
+
+	// Default constructor
+	Node()
+	{
+		data = 0;
+		next = NULL;
+	}
+
+	// Parameterised Constructor
+	Node(int data)
+	{
+		this->data = data;
+		this->next = NULL;
+	}
+};
+
+// Linked list class to
+// implement a linked list.
+class Linkedlist {
+	Node* head;
+
+public:
+	// Default constructor
+	Linkedlist() { head = NULL; }
+
+	// Function to insert a
+	// node at the end of the
+	// linked list.
+	void insertNode(int);
+
+	// Function to print the
+	// linked list.
+	void printList();
+
+	// Function to delete the
+	// node at given position
+	void deleteNode(int);
+};
+
+// Function to delete the
+// node at given position
+void Linkedlist::deleteNode(int nodeOffset)
+{
+	Node *temp1 = head, *temp2 = NULL;
+	int ListLen = 0;
+
+	if (head == NULL) {
+		cout << "List empty." << endl;
+		return;
+	}
+
+	// Find length of the linked-list.
+	while (temp1 != NULL) {
+		temp1 = temp1->next;
+		ListLen++;
+	}
+
+	// Check if the position to be
+	// deleted is greater than the length
+	// of the linked list.
+	if (ListLen < nodeOffset) {
+		cout << "Index out of range"
+			<< endl;
+		return;
+	}
+
+	// Declare temp1
+	temp1 = head;
+
+	// Deleting the head.
+	if (nodeOffset == 1) {
+
+		// Update head
+		head = head->next;
+		delete temp1;
+		return;
+	}
+
+	// Traverse the list to
+	// find the node to be deleted.
+	while (nodeOffset-- > 1) {
+
+		// Update temp2
+		temp2 = temp1;
+
+		// Update temp1
+		temp1 = temp1->next;
+	}
+
+	// Change the next pointer
+	// of the previous node.
+	temp2->next = temp1->next;
+
+	// Delete the node
+	delete temp1;
 }
+
+// Function to insert a new node.
+void Linkedlist::insertNode(int data)
+{
+	// Create the new Node.
+	Node* newNode = new Node(data);
+
+	// Assign to head
+	if (head == NULL) {
+		head = newNode;
+		return;
+	}
+
+	// Traverse till end of list
+	Node* temp = head;
+	while (temp->next != NULL) {
+
+		// Update temp
+		temp = temp->next;
+	}
+
+	// Insert at the last.
+	temp->next = newNode;
+}
+
+// Function to print the
+// nodes of the linked list.
+void Linkedlist::printList()
+{
+	Node* temp = head;
+
+	// Check for empty list.
+	if (head == NULL) {
+		cout << "List empty" << endl;
+		return;
+	}
+
+	// Traverse the list.
+	while (temp != NULL) {
+		cout << temp->data << " ";
+		temp = temp->next;
+	}
+}
+
+// Driver Code
+int main()
+{
+	Linkedlist list;
+
+	// Inserting nodes
+	list.insertNode(1);
+	list.insertNode(2);
+	list.insertNode(3);
+	list.insertNode(4);
+
+	cout << "Elements of the list are: ";
+
+	// Print the list
+	list.printList();
+	cout << endl;
+
+	// Delete node at position 2.
+	list.deleteNode(2);
+
+	cout << "Elements of the list are: ";
+	list.printList();
+	cout << endl;
+	return 0;
+}
+
+```
+<br>
+
+***
+<br>
+
+### Doubly- Linked List (DLL / 이중 연결 리스트)
+<br>
+
+![연결 리스트](https://velog.velcdn.com/images/kon6443/post/8ec95fb8-f679-49d4-9b24-5cbbef3d7c3d/image.png)
+<br>
+
+
+> 실무적으로는 더블 링크스 리스트 라는 말로 더 자주 불리는 DLL의 구조에 대해, 위의 그림을 통해 이해해보자.
+<br>
+
++ 첫번째 Node는 **head** 라고 불린다.<br>
++ 마지막 Node는 **Tail** 이라 불린다. <br>
++ 리스트가 비어있다면, head는 **Null**을 가리킨다.<br>
++ Data 변수의 data type은 원하는 형태로 저장할 수 있다.<br>
++ SLL과는 다르게 DLL은 현재 Node의 *다음 Node를 가리키는* **Next Pointer** 이외에 *이전 Node를 가리키는* **Prev Pointer** 또한 가지고있어야 한다.<br><br>
+
+> 이외에도 **Multi-Linked List(MLL / 다중 연결 리스트), Circular-Linked list(CLL / 원령 연결 리스트)** 가 있는데, 이 둘도 기본 컨셉은 위의 두 Linked List 형태와 같음으로 간단하게 특징 정도만 알아보자.
+
+<br>
+
+---
+<br>
+
+### Mulit-Linked list(MLL / 다중 연결 리스트)
+<br>
+
+> 사실 이전에 설명한 DLL 또한 MLL의 한 가지이긴 하다. 다음 Node만을 바라볼 수 밖에 없는 SLL에 비해, MLL은 Next Node 이외의 Node를 바라볼 수 있는 구조를 의미하기 때문에 그렇다 할 수 있는 것이다.<br>
+
+**그렇다면 SLL에 비해 MLL의 장단점은 무엇이 있을까?**<br>
+
+> 가장 먼저 떠오르는 장점은 역시 탐색 속도에 있다. 단발적인 탐색이 아닌, 연속적으로 탐색이 이루어져야하는 경우 시간이 크게 단축된다는 효과가 있다. 하지만 Next Pointer만을 가진 SLL에 비해 두배 이상의 Pointer 공간이 사용되어야 한다는 단점 또한 존재한다.<br>
+
+**DLL 이상의 MLL은 어떻게 구현할 수 있을까**<br>
+
+> 예를 들어 Next 와 Prev Pointer 가 아닌, 두개의 Next Pointer를 가져야 하는 상황은 어떻게 구현해야 할까? 당장 떠오르는 방법으로는, pointer 변수를 vector의 동적 할당을 통해 하나의 Node에 포인터를 다중으로 사용하는 방법이 있겠다.<br>
+
+<br>
+
+---
+<br>
+
+### Circular-Linked list (CLL / 원형 연결 리스트)
+<br>
+
+> CLL은 생각보다 간단하다. 단순하게 list가 원형으로 연결된 구조라고 생각하면 되는데, Tail Node의 Next Pointer가 Head Node의 주소값을 가리키도록 설정하면 간단히 CLL을 완성할 수 있다.<br>
+
+> 장점으로는 모든 Node의 탐색을 끝마치면 다시 탐색 초기 Node로 돌아올 수 있다는 점, 비교적 단순한 구조를 가질 수 있다는 것 정도가 있겠다.<br>
+
+<br>
+
+---
+<br>
