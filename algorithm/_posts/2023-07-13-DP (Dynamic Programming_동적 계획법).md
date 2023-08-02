@@ -2,7 +2,7 @@
 layout: post
 title: DP (Dynamic Programming / 동적 계획법)
 description: >
- Dynamic Programming 과 관련돈 이론적인 설명 및 예제 풀이
+ Dynamic Programming 과 관련된 이론적인 설명 및 예제 풀이
 sitemap: false
 hide_last_modified: true
 ---
@@ -16,7 +16,7 @@ hide_last_modified: true
 ## Dynamic Programming ?
 
 
-Dynamic Programming(*이하 DP*)이란, 최적화 기법의 한 종류로, 특정 범위까지의 값을 구하기 위해서 그것과 다른 범위까지의 값을 이용하여 효율적으로 값을 구해내는 알고리즘 설계기법이다. 숩게 말하면, 불필요한 중복 계산을 최소화하여 최적해를 보다 효율적인 방법으로 산출해내는 방법이라고 할 수 있다.
+Dynamic Programming(*이하 DP*)이란, 최적화 기법의 한 종류로, 특정 범위까지의 값을 구하기 위해서 그것과 다른 범위까지의 값을 이용하여 효율적으로 값을 구해내는 알고리즘 설계기법이다. 쉽게 말하면, 불필요한 중복 계산을 최소화하여 최적해를 보다 효율적인 방법으로 산출해내는 방법이라고 할 수 있다.
 
 <br>
 
