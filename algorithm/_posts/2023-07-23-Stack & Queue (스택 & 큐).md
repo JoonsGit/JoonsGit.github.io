@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stack & Queue
+title: Stack & Queue (스택 & 큐)
 description: > 
   Stack(스택)과 Queue(큐)에 관한 기본적인 이론
 sitemap: false
