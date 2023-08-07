@@ -8,7 +8,7 @@ hide_last_modified: true
 ---
 
 
-# Stack & Queue
+# Stack & Queue (스택 & 큐)
 
 ---
 
