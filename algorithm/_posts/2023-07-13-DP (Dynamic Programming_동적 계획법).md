@@ -483,7 +483,7 @@ int main() {
 
 
 
-### 5. [백준 9095번](https://www.acmicpc.net/problem/9095)
+### 4. [백준 9095번](https://www.acmicpc.net/problem/9095)
 
 
 
@@ -579,7 +579,7 @@ int main() {
 
 
 
-### 6. [백준 2748번](https://www.acmicpc.net/problem/2748)
+### 5. [백준 2748번](https://www.acmicpc.net/problem/2748)
 
 
 
@@ -649,7 +649,7 @@ int main() {
 
 
 
-### 7. [백준 15486](https://www.acmicpc.net/problem/15486)
+### 6. [백준 15486](https://www.acmicpc.net/problem/15486)
 
 
 
@@ -770,7 +770,7 @@ int main() {
 <hr>
 
 
-### 8. [백준 11726](https://www.acmicpc.net/problem/11726)
+### 7. [백준 11726](https://www.acmicpc.net/problem/11726)
 
 
 
