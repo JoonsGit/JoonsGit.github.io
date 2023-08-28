@@ -296,10 +296,105 @@ int solution(vector<int> ingredient) {
 
 ## 3. 코딩테스트 연습 > 2018 KAKAO BLIND RECRUITMENT > [1차]프렌즈 4블록
 
+<h3>! 미완성
+
 
 
 ```cpp
-// codes
+#include <string>
+#include <vector>
+#include <stack>
+using namespace std;
+
+vector<pair<int, int>> d_list;  // 삭제할 좌표들을 저장
+bool do_next = true;
+
+// 검사 함수
+void inspect(int a, int b, vector<string>& board) {
+    char target = board[a][b];  // 2x2 블록의 좌측 상단 문자를 저장
+    for (int i = a; i < a + 2; i++) {   // 범위가 세로로 두 줄 
+        for (int j = b; j < b + 2; j++) {   // 범위가 가로로 두 줄 
+            if (board[i][j] != target) {
+                return;  // 하나라도 다른 문자가 있다면 삭제 x
+            }
+        }
+    }
+    // 모든 문자가 같다면 return 당하지 않고 이곳에 도달 : 4개의 좌표를 d_list에 추가
+    for (int i = a; i < a + 2; i++) {
+        for (int j = b; j < b + 2; j++) {
+            d_list.push_back(make_pair(i, j));
+        }
+    }
+    do_next = true; // 이번 시행의 2x2 블럭은 폭파되어야 하므로 다음 시행을 해야됨.
+    return;
+}
+
+// x로 변환해주는 함수
+void to_x(vector<string>& board, int& answer) {
+    for (auto& p : d_list) {
+        if (board[p.first][p.second] != 'x') {  // 중복 처리
+            board[p.first][p.second] = 'x';     // x로 교체
+            answer++;   // x로 교체했으니 answer++ 처리
+        }
+    }
+    d_list.clear();  // 삭제 좌표 목록 초기화
+}
+
+// 조정 함수
+void remap (vector<string>& board) {
+    stack<char> save_temp; // x 발견된 열에서 x를 제외한 문자를 임시저장
+    for (int j = 0; j < board[0].size(); j++) {    // 열 개수만큼 탐색
+        save_temp = stack<char>();
+        for (int i = 0; i < board.size(); i++) {    // 열 하나의 시행에서 : 행 개수만큼 탐색
+            if (board[i][j] == 'x') {   // x 발견 -> 해당 열 전체를 재배치 : 특정 열에서 x가 탐지되면 바로 재배치까지 해버리고 다음 열로 이동
+                int x_cnt = 0;
+                for (int k = board.size() - 2; k >= 0 ; k--) {    // 가장 아래 원소부터 받기 : 가장 나중에 x 개수만큼 추가해주기
+                    if (board[k][j] != 'x') {   // x가 아닌 것만 골라서 담기
+                        save_temp.push(board[k][j]);
+                    }
+                    else {  // x인 경우
+                        x_cnt++;
+                    }
+                }
+                for (int k = 0; k < x_cnt; k++) {   // 탐지한 x 개수 만큼 stack의 가장 위에 쌓기
+                    save_temp.push('x');
+                }
+                for (int k = board.size() - 2; k >= 0; k--) {    // 위에서부터 재배치
+                board[k + 1][j] = save_temp.top();  // 
+                    save_temp.pop();
+                }
+                board[0][j] = save_temp.top(); // 맨 위 값을 채움
+                save_temp.pop();
+
+                break; // 필요 없는 중복계산 하지 않고 다음 열로 이동
+            }
+        }
+
+    }    
+}
+
+// 메인동작 함수
+int solution(int m, int n, vector<string> board) {
+    int answer = 0;
+
+    while (do_next) {
+        do_next = false;  // 각 반복문 시작시 do_next를 false로 초기화
+        
+        int r_size = board.size();
+        int c_size = board[0].size();
+
+        for (int i = 0; i < r_size - 1; i++) {
+            for (int j = 0; j < c_size - 1; j++) {
+                inspect(i, j, board);
+            }
+        }
+        
+        to_x(board, answer);
+        remap(board);
+    }
+
+    return answer;
+}
 
 ```
 
