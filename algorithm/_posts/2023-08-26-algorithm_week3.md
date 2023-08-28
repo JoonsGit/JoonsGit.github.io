@@ -1,85 +1,19 @@
 ---
-layout: single
-title:  "jupyter notebook 변환하기!"
-categories: coding
-tag: [python, blog, jekyll]
-toc: true
-author_profile: false
+layout: post
+title: Algorithm_week_3
+description: >
+  Algorithm_week_3
+sitemap: false
+hide_last_modified: true
 ---
 
-<head>
-  <style>
-    table.dataframe {
-      white-space: normal;
-      width: 100%;
-      height: 240px;
-      display: block;
-      overflow: auto;
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      line-height: 20px;
-      text-align: center;
-      border: 0px !important;
-    }
-
-    table.dataframe th {
-      text-align: center;
-      font-weight: bold;
-      padding: 8px;
-    }
-
-    table.dataframe td {
-      text-align: center;
-      padding: 8px;
-    }
-
-    table.dataframe tr:hover {
-      background: #b8d1f3; 
-    }
-
-    .output_prompt {
-      overflow: auto;
-      font-size: 0.9rem;
-      line-height: 1.45;
-      border-radius: 0.3rem;
-      -webkit-overflow-scrolling: touch;
-      padding: 0.8rem;
-      margin-top: 0;
-      margin-bottom: 15px;
-      font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
-      color: $code-text-color;
-      border: solid 1px $border-color;
-      border-radius: 0.3rem;
-      word-break: normal;
-      white-space: pre;
-    }
-
-  .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-  }
-
-  .dataframe tbody tr th {
-      vertical-align: top;
-  }
-
-  .dataframe thead th {
-      text-align: center !important;
-      padding: 8px;
-  }
-
-  .page__content p {
-      margin: 0 0 0px !important;
-  }
-
-  .page__content p > strong {
-    font-size: 0.8rem !important;
-  }
-
-  </style>
-</head>
-
-
 # Algorithm_week_3
+
+---
+
+<br>
+
+
 
 
 ## 1. 코딩테스트 연습 > 2022 KAKAO BLIND RECRUITMENT > 신고 결과 받기
@@ -256,6 +190,11 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
 
 ```
 
+---
+
+<br>
+
+
 
 ## 2. 코딩테스트 연습 >연습문제 > 햄버거 만들기
 
@@ -349,8 +288,30 @@ int solution(vector<int> ingredient) {
 
  ```
 
+---
 
-## 3. 코딩테스트 연습 > 2017 팁스타운 > 짝지어 제거하기
+<br>
+
+
+
+## 3. 코딩테스트 연습 > 2018 KAKAO BLIND RECRUITMENT > [1차]프렌즈 4블록
+
+
+
+```cpp
+// codes
+
+```
+
+
+
+
+
+---
+
+<br>
+
+## 4. 코딩테스트 연습 > 2017 팁스타운 > 짝지어 제거하기
 
 
 
@@ -402,8 +363,13 @@ int solution(string s) {
 
 ```
 
+---
 
-## 4. 코딩테스트 연습 > 연습문제 > 땅따먹기
+<br>
+
+
+
+## 5. 코딩테스트 연습 > 연습문제 > 땅따먹기
 
 
 
