@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Algorithm_week_3
+title: Algorithm Study_week_3
 description: >
   Algorithm_week_3
 sitemap: false
