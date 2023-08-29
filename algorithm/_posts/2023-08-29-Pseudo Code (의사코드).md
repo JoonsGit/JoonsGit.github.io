@@ -136,54 +136,54 @@ hide_last_modified: true
 
 
 >WHILE  조건
-
-    반복내용
-
-ENDWHILE
-
-
-
->IF 조건 THEN
-
-    처리내용
-
-ENDIF
+>
+>​	반복내용
+>
+>ENDWHILE
 
 
 
 >IF 조건 THEN
-
-    처리내용
-
-ELSE
-
-    처리내용
-
-ENDIF
+>
+>​	처리내용
+>
+>ENDIF
 
 
 
 >IF 조건 THEN
+>
+>​	처리내용
+>
+>ELSE
+>
+>​	처리내용
+>
+>ENDIF
 
-    처리내용
 
-ELSE IF 조건 THEN
 
-    처리내용
-
-ELSE
-
-    처리내용
-
-ENDIF
+>IF 조건 THEN
+>
+>​	처리내용
+>
+>ELSE IF 조건 THEN
+>
+>​	처리내용
+>
+>ELSE
+>
+>​	처리내용
+>
+>ENDIF
 
 
 
 >REPEAT
-
-UNTIL 조건
-
-ENDREPEAT
+>
+>​	UNTIL 조건
+>
+>ENDREPEAT
 
 
 
