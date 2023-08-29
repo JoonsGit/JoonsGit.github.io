@@ -143,11 +143,19 @@ hide_last_modified: true
 
 
 
+<br>
+
+
+
 >IF 조건 THEN
 >
 >​	처리내용
 >
 >ENDIF
+
+
+
+<br>
 
 
 
@@ -160,6 +168,10 @@ hide_last_modified: true
 >​	처리내용
 >
 >ENDIF
+
+
+
+<br>
 
 
 
@@ -176,6 +188,10 @@ hide_last_modified: true
 >​	처리내용
 >
 >ENDIF
+
+
+
+<br>
 
 
 
