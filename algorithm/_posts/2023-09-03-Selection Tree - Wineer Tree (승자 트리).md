@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Selection Tree - Wineer Tree (승자 트리)
+title: Selection Tree - Winner Tree (승자 트리)
 description: >
-   Selection Tree 중 Wineer Tree (승자 트리)에 관한 이론 및 구현 방법
+   Selection Tree 중 Winner Tree (승자 트리)에 관한 이론 및 구현 방법
 sitemap: false
 hide_last_modified: true
 ---
 
 
-# Selection Tree - Wineer Tree (승자 트리)
+# Selection Tree - Winner Tree (승자 트리)
 
 ---
 
