@@ -7,14 +7,14 @@ author1:
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
-  about:             |
-   This is a Blog only for record my study on codes.
+  about:             
+   This is a Blog only to record my study on codes.
     
     Send an email to `rlaqja2401@naver.com` if you have anything to ask.
 
   # This photo will be used in the about section
   picture:
-    path:            https://ibb.co/rx56CQ9
+    path:            /assets/img/photo.jpg
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
       1x:            https://via.placeholder.com/128x128
@@ -25,8 +25,8 @@ author1:
   # Rearrange to change the order in which they appear
   social:
     #twitter:         <username>
-    github:          <username>
-    email:           <rlaqja2401@naver.com>
+    github:          Joonsgit
+    email:           rlaqja2401@naver.com
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
@@ -37,7 +37,7 @@ author1:
     # spotify:         <user>/<number>
     # soundcloud:      <username>
     # lastfm:          <username>
-    instagram:       <k1mbeomjoon>
+    instagram:       k1mbeomjoon
     # flickr:          <string@string>
     # 500px:           <username>
     # dribbble:        <username>
