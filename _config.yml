@@ -49,9 +49,9 @@ author:
 # Add links to the sidebar.
 menu:
   - title:             Algorithm
-    url:               /algorithm/_posts/
-  - title:             Application
-    url:               /example/_posts/
+    url:               /algorithm/
+  - title:             Documentation
+    url:               /algorithm/
   - title:             About
     url:               /about/
 
