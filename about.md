@@ -8,3 +8,8 @@ hide_description: true
 redirect_from:
   - /download/
 ---
+
+<h1> About </h1>
+
+This is my personal blog to record my studies about algorithm, code and data structure.
+
